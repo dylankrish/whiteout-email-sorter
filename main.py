@@ -197,7 +197,9 @@ email_list = list(email_addresses)
 # Print the list of email addresses
 print(email_list)
 
+# email each email address
+# if this doesn't work we can use pyautogui to do it
 
-
-
-
+smtpserver = "outlook.office365.com"
+smtpport = 587
+from credentials import username,password 
