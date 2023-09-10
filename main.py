@@ -198,6 +198,12 @@ email_list = list(email_addresses)
 # Print the list of email addresses
 print(email_list)
 
+# confirm with the user that they want to send emails
+print("Are you sure you want to send emails to these addresses? (y/n)")
+confirmation = input()
+if confirmation != "y":
+    exit()
+
 # email each email address
 
 smtpserver = "smtp.gmail.com"
@@ -217,7 +223,7 @@ I am interested in buying your ticket. Please let me know if it is still availab
 
 Thanks,
 Dylan Krishnan
-dak5839@psu.edu
+PSU Email: dak5839@psu.edu
 """
 
 for email in email_list:
