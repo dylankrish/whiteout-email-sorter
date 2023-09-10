@@ -33,7 +33,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-server = smtplib.SMTP_SSL(smtpserver,smtpport)
 
 message = """
 Hello, 
@@ -51,6 +50,7 @@ for email in email_list:
     msg['From'] = username
     msg['To'] = email
     msg.attach(MIMEText(message, 'plain'))
+    server = smtplib.SMT_SSL(smtpserver,smtpport)
     server.starttls()
     server.login(username,password)
     server.sendmail(username,email,msg.as_string())
