@@ -37,7 +37,7 @@ import pyautogui
 
 time.sleep(3)
 
-# set pyautogui delay to 0.1 seconds
+pyautogui.PAUSE = 0.5
 
 for email in email_list:
     pyautogui.click(177, 107)
@@ -48,8 +48,6 @@ for email in email_list:
     pyautogui.typewrite(subject)
     pyautogui.press('tab')
     # copy message to clipboard
-    pyautogui.PAUSE = 0.2
-    pyautogui.hotkey('command', 'v')
-    pyautogui.delay = 0.1
+    pyautogui.hotkey('option', 'shift', 'command', 'v')
     # press command enter
     pyautogui.hotkey('command', 'enter')

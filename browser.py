@@ -83,16 +83,22 @@ if useTOTP:
         if driver.find_elements(By.ID, 'ViewDetails'):
             raise Exception('You didn\'t enter an expected verification code. Please try again.')
         # if the view details button is not visible, we are on the mail page
-        elif driver.find_elements(By.ID, '_3rUUXFwqB4l2JguqIctQtd'):
+        elif driver.find_elements(By.ID, 'id__174'):
             break
 else:
     # wait for the mail page
     # TODO: send system notifications?
     print('Please type your 2FA code and continue.')
     while True:
-        if driver.find_elements(By.CLASS_NAME, '_3rUUXFwqB4l2JguqIctQtd'):
+        if driver.find_elements(By.ID, 'id__174'):
             break
 
-# click id__174
-
-driver.find_element(By.ID, 'id__174').click()
+for email in email_list:
+    # click mail button
+    driver.find_element(By.ID, 'id__174').click()
+    # type email
+    driver.find_element(By.CLASS_NAME, 'T6Va1 VbY1P EditorClass aoWYQ').send_keys(email)
+    driver.find_element(By.ID, 'TextField326').send_keys(subject)
+    driver.find_element(By.CLASS_NAME, 'dFCbN dnzWM dPKNh DziEn Z6_Ux').send_keys(message)
+    # click send
+    driver.find_element(By.CLASS_NAME, 'ms-Button ms-Button--primary ms-Button--hasMenu be51T root-425').click()
