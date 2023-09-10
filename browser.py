@@ -39,10 +39,11 @@ Thanks,
 Dylan Krishnan
 """
 
-driver = webdriver.Chrome()
-
-driver.get("https://outlook.office365.com/mail/")
+options = webdriver.ChromeOptions()
+options.binary_location = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+driver = webdriver.Chrome(options=options)
 driver.maximize_window()
+driver.get("https://outlook.office365.com/mail/")
 
 from credentials import username,password,totpsecret
 import pyotp
