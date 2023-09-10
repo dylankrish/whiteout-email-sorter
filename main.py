@@ -37,7 +37,7 @@ from email.mime.application import MIMEApplication
 message = """
 Hello, 
 
-I am interested in buying your ticket. Please let me know if it is still available.
+I am interested in buying your ticket. Please let me know if it is still available, and how low you are willing to sell it for.
 
 Thanks,
 Dylan Krishnan
@@ -50,7 +50,7 @@ for email in email_list:
     msg['From'] = username
     msg['To'] = email
     msg.attach(MIMEText(message, 'plain'))
-    server = smtplib.SMT_SSL(smtpserver,smtpport)
+    server = smtplib.SMTP(smtpserver,smtpport)
     server.starttls()
     server.login(username,password)
     server.sendmail(username,email,msg.as_string())
