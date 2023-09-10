@@ -22,17 +22,6 @@ email_list = list(email_addresses)
 # Print the list of email addresses
 print(email_list)
 
-# email each email address
-
-smtpserver = "smtp.gmail.com"
-smtpport = 587
-from credentials import username,password
-
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.mime.application import MIMEApplication
-
 subject = "Iowa Ticket"
 message = """
 Hello, 
@@ -43,17 +32,24 @@ Thanks,
 Dylan Krishnan
 """
 
-for email in email_list:
-    print("Sending email to " + email)
-    msg = MIMEMultipart()
-    msg['Subject'] = "Iowa Ticket"
-    msg['From'] = username
-    msg['To'] = email
-    msg.attach(MIMEText(message, 'plain'))
-    server = smtplib.SMTP(smtpserver,smtpport)
-    server.starttls()
-    server.login(username,password)
-    server.sendmail(username,email,msg.as_string())
-    server.quit()
+import time
+import pyautogui
 
-print("Emails sent successfully")
+time.sleep(3)
+
+# set pyautogui delay to 0.1 seconds
+
+for email in email_list:
+    pyautogui.click(177, 107)
+    # type email
+    pyautogui.typewrite(email)
+    pyautogui.press("enter")
+    pyautogui.press('tab')
+    pyautogui.typewrite(subject)
+    pyautogui.press('tab')
+    # copy message to clipboard
+    pyautogui.PAUSE = 0.2
+    pyautogui.hotkey('command', 'v')
+    pyautogui.delay = 0.1
+    # press command enter
+    pyautogui.hotkey('command', 'enter')
