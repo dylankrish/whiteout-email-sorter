@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 credentials.py
 email_list.txt
+googlecredentials.py
