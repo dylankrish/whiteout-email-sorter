@@ -161,3 +161,4 @@ cython_debug/
 credentials.py
 email_list.txt
 googlecredentials.py
+.DS_Store
