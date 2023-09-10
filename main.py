@@ -45,6 +45,7 @@ Dylan Krishnan
 """
 
 for email in email_list:
+    print("Sending email to " + email)
     msg = MIMEMultipart()
     msg['Subject'] = "Iowa Ticket"
     msg['From'] = username
@@ -54,3 +55,5 @@ for email in email_list:
     server.login(username,password)
     server.sendmail(username,email,msg.as_string())
     server.quit()
+
+print("Emails sent successfully")
