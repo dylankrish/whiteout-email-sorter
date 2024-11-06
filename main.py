@@ -231,7 +231,7 @@ PSU Email: dak5839@psu.edu
 for email in email_list:
     print("Sending email to " + email)
     msg = MIMEMultipart()
-    msg['Subject'] = "Iowa Ticket"
+    msg['Subject'] = subject
     msg['From'] = username
     msg['To'] = email
     msg.attach(MIMEText(message, 'plain'))
